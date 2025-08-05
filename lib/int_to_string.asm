@@ -17,7 +17,7 @@ section .text
 int_to_str:
     mov ebx, [esp + 4]     ; load input to ebx
     mov esi, output_string + 11
-    cmp ebx, 0
+    test ebx, ebx
     jg _divide
 
 _negative:
@@ -25,7 +25,7 @@ _negative:
 
 _divide:
     mov eax, ebx
-    cmp eax, 0
+    test eax, eax
     je _end
     xor edx, edx
     mov ecx, 10
